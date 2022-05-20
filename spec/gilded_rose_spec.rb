@@ -79,5 +79,36 @@ describe GildedRose do
       GildedRose.new(items).update_quality
       expect(items[0].quality).to eq(0)
     end
+
+    # Testing sulfura item
+
+    it 'Sulfuras never modified its property sell_in' do
+      sulfura = 'Sulfuras, Hand of Ragnaros'
+      items = [Item.new(sulfura, 4, 4)]
+      GildedRose.new(items).update_quality
+      expect(items[0].sell_in).to eq(4)
+    end
+
+    it 'Sulfuras never has to decreased in quality' do
+      sulfura = 'Sulfuras, Hand of Ragnaros'
+      items = [Item.new(sulfura, 5, 5)]
+      GildedRose.new(items).update_quality
+      expect(items[0].quality).to eq(5)
+    end
+
+    # Testing new feature conjurados
+    it 'conjured items degrade in Quality twice as fast as normal items' do
+      conjured = 'Conjured item'
+      items = [Item.new(conjured, 0, 0)]
+      GildedRose.new(items).update_quality
+      expect(items[0].quality).to eq(0)
+    end
+
+    it 'conjured items does not afect its sell_in property' do
+      conjured = 'Conjured item'
+      items = [Item.new(conjured, 5, 5)]
+      GildedRose.new(items).update_quality
+      expect(items[0].sell_in).to eq(4)
+    end
   end
 end
