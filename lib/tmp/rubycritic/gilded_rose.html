@@ -72,11 +72,11 @@
               <div><span class="metric">2</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">1.8</span><small> complexity/method</small></div>
+              <div><span class="metric">2.4</span><small> complexity/method</small></div>
               <div><span class="metric">0</span><small> churn</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">3.65</span><small> complexity</small></div>
+              <div><span class="metric">4.8</span><small> complexity</small></div>
               <div><span class="metric">0</span><small> duplications</small></div>
             </div>
           </div>
@@ -97,7 +97,9 @@
       </div>
     </div>
 
-    <code class="prettyprint linenums lang-ruby file-code js-file-code">require_relative &#39;item&#39;
+    <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+
+require_relative &#39;item&#39;
 require_relative &#39;normal_item&#39;
 require_relative &#39;aged_brie&#39;
 require_relative &#39;backstage&#39;
@@ -110,19 +112,17 @@ class GildedRose<ol class="nocode errors smells">  <li>    <div class="descripti
   end
 
   def update_quality
-    @items.each do |item|
-      item.update_quality
-    end
+    @items.each(&amp;:update_quality)
   end
 end
 
-normal_items = NormalItem.new(&#39;Normal Item&#39;, 10, 10)
-aged_brie_item = AgedBrie.new(10, 10)
-backstage_item = Backstage.new(10, 10)
-sulfura_item = SulfurasItem.new(10)
-conjured_item = Conjured.new(10, 10)
-list_items = GildedRose.new([normal_items, aged_brie_item, backstage_item, sulfura_item, conjured_item])
-puts list_items.update_quality
+# normal_items = NormalItem.new(&#39;Normal Item&#39;, 10, 10)
+# aged_brie_item = AgedBrie.new(10, 10)
+# backstage_item = Backstage.new(10, 10)
+# sulfura_item = SulfurasItem.new(10)
+# conjured_item = Conjured.new(10, 10)
+# list_items = GildedRose.new([normal_items, aged_brie_item, backstage_item, sulfura_item, conjured_item])
+# puts list_items.update_quality
 </code>
   </div>
 </div>

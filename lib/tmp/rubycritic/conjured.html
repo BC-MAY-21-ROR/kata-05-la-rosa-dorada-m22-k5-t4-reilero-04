@@ -68,7 +68,7 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">15</span><small> lines of codes</small></div>
+              <div><span class="metric">17</span><small> lines of codes</small></div>
               <div><span class="metric">3</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
@@ -97,12 +97,14 @@
       </div>
     </div>
 
-    <code class="prettyprint linenums lang-ruby file-code js-file-code">require_relative &#39;normal_item&#39;
+    <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+
+require_relative &#39;normal_item&#39;
 
 class Conjured &lt; NormalItem<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Irresponsible-Module.md" target="_blank"><b>IrresponsibleModule</b></a>        </span>      </div>      <span>Conjured has no descriptive comment</span>          </div>  </li></ol>
   def initialize(sell_in, quality)
-		super(&#39;Conjured&#39;, sell_in, quality)
-	end
+    super(&#39;Conjured&#39;, sell_in, quality)
+  end
 
   def quality_lost_per_day<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Utility-Function.md" target="_blank"><b>UtilityFunction</b></a>        </span>      </div>      <span>Conjured#quality_lost_per_day doesn't depend on instance state (maybe move it to another class?)</span>          </div>  </li></ol>
     -1 * 2

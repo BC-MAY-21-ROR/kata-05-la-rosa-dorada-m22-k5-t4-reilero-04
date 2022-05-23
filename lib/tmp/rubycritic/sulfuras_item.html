@@ -68,7 +68,7 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">18</span><small> lines of codes</small></div>
+              <div><span class="metric">19</span><small> lines of codes</small></div>
               <div><span class="metric">4</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
@@ -97,11 +97,13 @@
       </div>
     </div>
 
-    <code class="prettyprint linenums lang-ruby file-code js-file-code">require_relative &#39;normal_item&#39;
+    <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+
+require_relative &#39;normal_item&#39;
 
 class SulfurasItem &lt; NormalItem<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Irresponsible-Module.md" target="_blank"><b>IrresponsibleModule</b></a>        </span>      </div>      <span>SulfurasItem has no descriptive comment</span>          </div>  </li></ol>
   def initialize(sell_in)
-    super(&quot;Sulfuras, Hand of Ragnaros&quot;, sell_in, 80)
+    super(&#39;Sulfuras, Hand of Ragnaros&#39;, sell_in, 80)
   end
 
   def update_quality; end
@@ -111,9 +113,8 @@ class SulfurasItem &lt; NormalItem<ol class="nocode errors smells">  <li>    <di
   end
 
   def quality_lost_after_sell_in
-    0 
+    0
   end
-
 end
 </code>
   </div>
