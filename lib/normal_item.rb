@@ -1,21 +1,18 @@
-require 'item'
+# frozen_string_literal: true
+
+require_relative 'item'
 
 class NormalItem < Item
-  def initialize(name, sell_in, quality)
-    super(name, sell_in, quality)
-  end
-  
   def update_quality
+    @quality += if @sell_in <= 0
+                  quality_lost_after_sell_in
+                else
+                  quality_lost_per_day
+                end
+
     @sell_in -= 1
-    if @quality > 0
-      if @sell_in <= 0
-        @quality += quality_lost_after_sell_in
-      else
-        @quality += quality_lost_per_day
-      end
-    else
-      @quality = 0
-    end
+    @quality = 0 if @quality.negative?
+    @quality = 50 if @quality > 50
   end
 
   def quality_lost_per_day
@@ -23,7 +20,6 @@ class NormalItem < Item
   end
 
   def quality_lost_after_sell_in
-    -2 
+    -2
   end
-
 end

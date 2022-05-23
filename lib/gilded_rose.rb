@@ -1,58 +1,26 @@
+# frozen_string_literal: true
+
+require_relative 'item'
+require_relative 'normal_item'
+require_relative 'aged_brie'
+require_relative 'backstage'
+require_relative 'conjured'
+require_relative 'sulfuras_item'
+
 class GildedRose
   def initialize(items)
     @items = items
   end
 
   def update_quality
-    @items.each do |item|
-
-      if item.name == 'Conjured item'
-        item.quality <= 0 ? 0 : item.quality -= 2
-        item.sell_in -= 1
-      else
-        if item.name != 'Aged Brie' && item.name != 'Backstage passes to a TAFKAL80ETC concert'
-          item.quality = item.quality - 1 if item.quality > 0 && (item.name != 'Sulfuras, Hand of Ragnaros')
-        elsif item.quality < 50
-          item.quality = item.quality + 1
-          if item.name == 'Backstage passes to a TAFKAL80ETC concert'
-            item.quality = item.quality + 1 if item.sell_in < 11 && (item.quality < 50)
-            item.quality = item.quality + 1 if item.sell_in < 6 && (item.quality < 50) 
-          end
-        end
-        item.sell_in = item.sell_in - 1 if item.name != 'Sulfuras, Hand of Ragnaros'
-        if item.sell_in < 0
-          if item.name != 'Aged Brie'
-            if item.name != 'Backstage passes to a TAFKAL80ETC concert'
-              item.quality = item.quality - 1 if item.quality > 0 && (item.name != 'Sulfuras, Hand of Ragnaros')
-            else
-              item.quality = item.quality - item.quality
-            end
-          elsif item.quality < 50
-            item.quality = item.quality + 1
-          end
-        end
-      end
-    end
-
-      end
-
-end
-
-class Item
-  attr_accessor :name, :sell_in, :quality
-  # quality parameters can't be less than 0 => Refactoring
-  def initialize(name, sell_in, quality)
-    @name = name
-    @sell_in = sell_in
-    @quality = quality
-  end
-
-  def to_s
-    "#{@name}, #{@sell_in}, #{@quality}"
+    @items.each(&:update_quality)
   end
 end
 
-item = Item.new('Aged brie', 2, -2)
-puts item.sell_in
-items = Item.new('Aged brie', 2, -2)
-puts items
+# normal_items = NormalItem.new('Normal Item', 10, 10)
+# aged_brie_item = AgedBrie.new(10, 10)
+# backstage_item = Backstage.new(10, 10)
+# sulfura_item = SulfurasItem.new(10)
+# conjured_item = Conjured.new(10, 10)
+# list_items = GildedRose.new([normal_items, aged_brie_item, backstage_item, sulfura_item, conjured_item])
+# puts list_items.update_quality
