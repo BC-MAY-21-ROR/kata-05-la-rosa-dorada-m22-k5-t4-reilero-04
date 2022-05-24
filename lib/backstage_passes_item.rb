@@ -3,7 +3,7 @@
 require_relative 'normal_item'
 
 # This class return quality for backstage items
-class Backstage < NormalItem
+class BackstagePassesItem < NormalItem
   def initialize(sell_in, quality)
     super('Backstage passes to a TAFKAL80ETC concert', sell_in, quality)
     @sell_in = sell_in

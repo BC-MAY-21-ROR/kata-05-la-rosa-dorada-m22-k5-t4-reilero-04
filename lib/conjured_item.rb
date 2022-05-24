@@ -3,7 +3,7 @@
 require_relative 'normal_item'
 
 # This class return quality for conjured items
-class Conjured < NormalItem
+class ConjuredItem < NormalItem
   def initialize(sell_in, quality)
     super('Conjured', sell_in, quality)
   end
