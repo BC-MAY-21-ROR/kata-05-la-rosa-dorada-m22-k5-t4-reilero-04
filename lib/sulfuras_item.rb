@@ -2,6 +2,7 @@
 
 require_relative 'normal_item'
 
+# This class return quality for sulfuras items
 class SulfurasItem < NormalItem
   def initialize(sell_in)
     super('Sulfuras, Hand of Ragnaros', sell_in, 80)

@@ -68,15 +68,15 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">23</span><small> lines of codes</small></div>
+              <div><span class="metric">20</span><small> lines of codes</small></div>
               <div><span class="metric">3</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">2.7</span><small> complexity/method</small></div>
+              <div><span class="metric">2.1</span><small> complexity/method</small></div>
               <div><span class="metric">0</span><small> churn</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">8.05</span><small> complexity</small></div>
+              <div><span class="metric">6.38</span><small> complexity</small></div>
               <div><span class="metric">0</span><small> duplications</small></div>
             </div>
           </div>
@@ -88,8 +88,8 @@
             <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
             <li class="active">
               <a href="#" id="toggle-smells" class="toggle-button button">
-                2
-                smells
+                0
+                smell
               </a>
             </li>
           </ul>
@@ -101,19 +101,16 @@
 
 require_relative &#39;normal_item&#39;
 
-class Backstage &lt; NormalItem<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Instance-Variable-Assumption.md" target="_blank"><b>InstanceVariableAssumption</b></a>        </span>      </div>      <span>Backstage assumes too much for instance variable '@sell_in'</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Irresponsible-Module.md" target="_blank"><b>IrresponsibleModule</b></a>        </span>      </div>      <span>Backstage has no descriptive comment</span>          </div>  </li></ol>
+# This class return quality for backstage items
+class Backstage &lt; NormalItem
   def initialize(sell_in, quality)
     super(&#39;Backstage passes to a TAFKAL80ETC concert&#39;, sell_in, quality)
+    @sell_in = sell_in
   end
 
   def quality_lost_per_day
-    if @sell_in &lt;= 5
-      3
-    elsif @sell_in &lt;= 10
-      2
-    elsif @sell_in &gt; 10
-      1
-    end
+
+    @sell_in &lt;= 5 ? 3 : @sell_in &lt;= 10 ? 2 : 1
   end
 
   def quality_lost_after_sell_in

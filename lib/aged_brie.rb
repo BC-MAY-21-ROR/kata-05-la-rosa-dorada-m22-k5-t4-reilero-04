@@ -2,6 +2,7 @@
 
 require_relative 'normal_item'
 
+# This class return quality for aged-brie items
 class AgedBrie < NormalItem
   def initialize(sell_in, quality)
     super('Aged Brie', sell_in, quality)

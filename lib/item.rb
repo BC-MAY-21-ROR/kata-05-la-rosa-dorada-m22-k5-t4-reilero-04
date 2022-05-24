@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# This class is base for another kind of item class
 class Item
   attr_accessor :name, :sell_in, :quality
 

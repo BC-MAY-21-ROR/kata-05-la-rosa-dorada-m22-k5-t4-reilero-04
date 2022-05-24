@@ -82,3 +82,11 @@ legendary item and as such its Quality is 80 and it never alters.
 ### The Gilded Rose Refactoring Kata
 - [The Gilded Rose Refactoring Kata](https://github.com/emilybache/GildedRose-Refactoring-Kata)
 
+
+El requerimiento
+
+Hace poco contratamos a un proveedor de artículos conjurados mágicamente. Esto requiere una actualización del sistema:
+
+    Los artículos conjurados degradan su calidad al doble de velocidad que los normales
+
+Siéntete libre de realizar cualquier cambio al mensaje updateQuality y agregar el código que sea necesario, mientras que todo siga funcionando correctamente. Sin embargo, no alteres el objeto Item ni sus propiedades ya que pertenecen al goblin que está en ese rincón, que en un ataque de ira te va a liquidar de un golpe porque no cree en la cultura de código compartido.

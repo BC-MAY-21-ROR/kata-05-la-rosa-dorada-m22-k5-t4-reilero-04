@@ -68,7 +68,7 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">26</span><small> lines of codes</small></div>
+              <div><span class="metric">27</span><small> lines of codes</small></div>
               <div><span class="metric">2</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
@@ -88,7 +88,7 @@
             <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
             <li class="active">
               <a href="#" id="toggle-smells" class="toggle-button button">
-                1
+                0
                 smell
               </a>
             </li>
@@ -106,7 +106,8 @@ require_relative &#39;backstage&#39;
 require_relative &#39;conjured&#39;
 require_relative &#39;sulfuras_item&#39;
 
-class GildedRose<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Irresponsible-Module.md" target="_blank"><b>IrresponsibleModule</b></a>        </span>      </div>      <span>GildedRose has no descriptive comment</span>          </div>  </li></ol>
+# This class return quality for an array of items
+class GildedRose
   def initialize(items)
     @items = items
   end
@@ -116,13 +117,13 @@ class GildedRose<ol class="nocode errors smells">  <li>    <div class="descripti
   end
 end
 
-# normal_items = NormalItem.new(&#39;Normal Item&#39;, 10, 10)
-# aged_brie_item = AgedBrie.new(10, 10)
-# backstage_item = Backstage.new(10, 10)
-# sulfura_item = SulfurasItem.new(10)
-# conjured_item = Conjured.new(10, 10)
-# list_items = GildedRose.new([normal_items, aged_brie_item, backstage_item, sulfura_item, conjured_item])
-# puts list_items.update_quality
+normal_items = NormalItem.new(&#39;Normal Item&#39;, 10, 10)
+aged_brie_item = AgedBrie.new(10, 10)
+backstage_item = Backstage.new(10, 10)
+sulfura_item = SulfurasItem.new(10)
+conjured_item = Conjured.new(10, 10)
+list_items = GildedRose.new([normal_items, aged_brie_item, backstage_item, sulfura_item, conjured_item])
+puts list_items.update_quality
 </code>
   </div>
 </div>
